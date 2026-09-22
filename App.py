@@ -17,7 +17,7 @@ AUDIO_QUALITY = "192"                        # kbps
 
 def clean_title(line: str) -> str:
     """Strip leading track numbers and whitespace from a playlist line."""
-    # Remove leading "123\t" or "123 " numbering
+   
     line = re.sub(r"^\s*\d+[\t\s]+", "", line)
     return line.strip()
 
@@ -47,7 +47,7 @@ def load_tracks(filepath: str) -> list[str]:
 
 def download_track(query: str, output_dir: str) -> bool:
    
-    # ytsearch1: searches YouTube and picks the top result
+  
     search_url = f"ytsearch1:{query}"
 
     cmd = [
@@ -72,7 +72,7 @@ def download_track(query: str, output_dir: str) -> bool:
         if result.returncode == 0:
             return True
         else:
-            # Print yt-dlp's error so user knows why it failed
+       
             err = result.stderr.strip()
             if err:
                 print(f"   yt-dlp error: {err[:200]}")
